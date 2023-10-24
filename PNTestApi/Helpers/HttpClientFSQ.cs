@@ -5,7 +5,7 @@ namespace PNTestApi.Helpers
 {
     public class HttpClientFSQ
     {
-        string _foursquareApiKey = "fsq35VtgasevJgZvwqcohoAtpmgK74ivDxpoKWJ6TpT2430="; // ovo stavi u config
+        string _foursquareApiKey = "MYAPIFSQ"; // ovo stavi u config
         public HttpResponseMessage fsqResponse { get; set; }
         Dictionary<string, string> _queryParams {  get; set; }
 
