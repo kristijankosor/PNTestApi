@@ -1,6 +1,4 @@
-﻿using PNTestApi.Models;
-
-namespace PNTestApi.DTOs
+﻿namespace PNTestApi.DTOs
 {
     public class LocationRequest
     {

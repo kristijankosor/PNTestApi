@@ -1,4 +1,4 @@
-﻿namespace PNTestApi.Models
+﻿namespace PNTestApi.DTOs
 {
     public class Location
     {
