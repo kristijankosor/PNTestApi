@@ -22,17 +22,12 @@ namespace PNTestApi.Helpers
             }
         }
 
-        private List<Place> FilterByCategory(string? category)//ovo se moze poopcit
+        public List<Place> PlacesWithCategory(string? category)//ovo se moze poopcit
         {
             if (category == null) return _places;
 
             var filteredObjects = _places.Where(o => o.Categories.Any(k => k.Name == category)).ToList();
             return filteredObjects;
-        }
-
-        public string PlacesByCategoryJson(string? category)
-        {
-            return JsonSerializer.Serialize(FilterByCategory(category));
         }
     }
 }

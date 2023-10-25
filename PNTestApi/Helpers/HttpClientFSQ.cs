@@ -5,25 +5,20 @@ namespace PNTestApi.Helpers
 {
     public class HttpClientFSQ
     {
-        string _foursquareApiKey = "MYAPIFSQ"; // ovo stavi u config
-        public HttpResponseMessage fsqResponse { get; set; }
-        Dictionary<string, string> _queryParams {  get; set; }
+        string _foursquareApiKey = "fsq35VtgasevJgZvwqcohoAtpmgK74ivDxpoKWJ6TpT2430="; // ovo stavi u config
 
-        public HttpClientFSQ(Dictionary<string, string> queryParams) 
-        {
-            _queryParams = queryParams;
-        }
-
-        public async Task setResponseAsync()
+        public async Task<HttpResponseMessage> GetFSQResponseAsync(Dictionary<String, String> queryParams)
         {
             using (var httpClient = new HttpClient())
             {
                 httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", _foursquareApiKey);
                 httpClient.DefaultRequestHeaders.Add("accept", "application/json");
                 var uriBuilder = new UriBuilder("https://api.foursquare.com/v3/places/search");
-                uriBuilder.Query = new FormUrlEncodedContent(_queryParams).ReadAsStringAsync().Result;
+                uriBuilder.Query = new FormUrlEncodedContent(queryParams).ReadAsStringAsync().Result;
 
-                fsqResponse = await httpClient.GetAsync(uriBuilder.Uri);
+                var fsqResponse = await httpClient.GetAsync(uriBuilder.Uri);
+
+                return fsqResponse;
             }
         }
     }
